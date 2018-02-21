@@ -23,6 +23,7 @@ $api->version('v1', function($api){
 		/*La API REST en si misma*/
 		$api->group(['namespace' => 'App\Http\Controllers', 'middleware' => ['api.auth']], function($api){
 			$api->resource('users', 'UserController');
+			$api->resource('me', 'ProfileController');
 		});
 	});
 

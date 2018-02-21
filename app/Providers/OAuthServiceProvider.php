@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\User;
+use App\Auth\UserResolver;
 use Illuminate\Support\ServiceProvider;
 use Dingo\Api\Auth\Provider\OAuth2;
 
@@ -23,7 +24,8 @@ class OAuthServiceProvider extends ServiceProvider
 			 });
 
 			 $provider->setUserResolver(function($id){
-			 	// Logic to return a user by their ID.
+			 	$resolver = app('\App\Auth\UserResolver');
+			 	return $resolver->resolveById($id);
 			 });
 
 			 return $provider;
