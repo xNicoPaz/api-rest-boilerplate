@@ -7,6 +7,10 @@ use App\Transformers\UserTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
+/*
+	La idea es evolucionar esto para un futuro uso, asi como esta es muy precario.
+	Pero es un maravilloso comienzo.
+*/
 class ProfileController extends Controller
 {
 	use Helpers;
@@ -15,8 +19,5 @@ class ProfileController extends Controller
     	$user = $this->auth->user();
 
     	return $this->response->item($user, new UserTransformer());
-    	//return json_encode(['a' =>1, 'b' => 2, 'c' => 3]);
-
-    	//return $user;
     }
 }
